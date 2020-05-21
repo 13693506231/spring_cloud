@@ -1,0 +1,36 @@
+# 应用基本信息
+server:
+  port: 12000 # 端口号
+spring:
+  application:
+    name: config-server # 应用名
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        git:
+          # 配置gitee的仓库地址
+          uri: https://gitee.com/nankangkang/spring-cloud-config.git
+# Eureka服务中心配置
+eureka:
+  client:
+    service-url:
+      # 注册Eureka Server集群
+      defaultZone: http://127.0.0.1:10086/eureka
+      # com.itheima 包下的日志级别都为Debug
+      logging:
+        level:
+          com: debug
+
+
+# 暴露触发消息总线的地址
+management:
+  endpoints:
+    web:
+      exposure:
+# 暴露触发消息总线的地址
+        include: bus-refresh
